@@ -9,12 +9,18 @@ import dashboardRouter from "./routes/dashboardRoute.js";
 
 
 const app = express();
-const port = 4000;
+const port = process.env.PORT || 4000;
 
-
+const allowedOrigins = [
+    "http://localhost:5173", // local Vite dev server
+    process.env.FRONTEND_URL, // your live Vercel URL, set in Render's env vars
+].filter(Boolean);
 
 //MIDDLEWARES
-app.use(cors());
+app.use(cors({
+    origin: allowedOrigins,
+    credentials: true,
+}));
 
 app.use(express.json());
 
@@ -33,5 +39,5 @@ app.get("/", (req, res) => {
     res.send("API WORKING");
 });
 app.listen(port, () => {
-    console.log(`Server Started on http://localhost:${port}`);
+    console.log(`Server Started on port ${port}`);
 });
