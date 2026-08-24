@@ -5,7 +5,7 @@ import axios from "axios";
 import { ArrowLeft, Eye, EyeOff, Lock, Mail, User } from "lucide-react";
 
 
-export const Signup = ({API_URL="http://localhost:4000",onSignup}) => {
+export const Signup = ({API_URL = import.meta.env.VITE_API_URL || "https://expense-tracker-online-k6kc.onrender.com", onSignup}) => {
     const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
