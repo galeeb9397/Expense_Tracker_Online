@@ -5,7 +5,7 @@ import { loginStyles } from '../assets/dummyStyles'
 import axios from 'axios';
 
 
-const Login = ({ onLogin, API_URL = import.meta.env.VITE_API_URL || "https://expense-tracker-online-k6kc.onrender.com" }) => {
+const Login = ({ onLogin, API_URL = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? "http://localhost:4000" : "https://expense-tracker-online-k6kc.onrender.com") }) => {
 const[email,setEmail]=useState("");
 const[password,setPassword]=useState("");
 const[showPassword,setShowPassword]=useState(false);

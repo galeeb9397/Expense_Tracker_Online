@@ -27,7 +27,7 @@ import { ResponsiveContainer, PieChart, Pie, Cell, Tooltip, Legend } from "recha
 
 
 
-const API_BASE = `${import.meta.env.VITE_API_URL || "https://expense-tracker-online-k6kc.onrender.com"}/api`;
+const API_BASE = `${import.meta.env.VITE_API_URL || (import.meta.env.DEV ? "http://localhost:4000" : "https://expense-tracker-online-k6kc.onrender.com")}/api`;
 
 const getAuthHeader=()=>{
   const token=localStorage.getItem("token")||sessionStorage.getItem("token")||localStorage.getItem("authToken");

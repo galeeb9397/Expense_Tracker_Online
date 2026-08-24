@@ -13,7 +13,7 @@ const port = process.env.PORT || 4000;
 
 const allowedOrigins = [
     "http://localhost:5173", // local Vite dev server
-    process.env.FRONTEND_URL, // your live Vercel URL, set in Render's env vars
+    ...(process.env.FRONTEND_URL ? process.env.FRONTEND_URL.split(",").map(url => url.trim()) : [])
 ].filter(Boolean);
 
 //MIDDLEWARES

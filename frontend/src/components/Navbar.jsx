@@ -6,7 +6,7 @@ import imgl from '../assets/logo.png'
 import axios from 'axios';
 
 
-const BASE_URL = `${import.meta.env.VITE_API_URL || "https://expense-tracker-online-k6kc.onrender.com"}/api`;
+const BASE_URL = `${import.meta.env.VITE_API_URL || (import.meta.env.DEV ? "http://localhost:4000" : "https://expense-tracker-online-k6kc.onrender.com")}/api`;
 
 
 
